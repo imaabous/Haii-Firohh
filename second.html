@@ -1,113 +1,159 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Pop-up Example</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="main.js"></script>
     <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-image: url(assets/img/pirocanci.jpg);
-            background-size: cover;
-        }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-image: url(assets/img/pirocanci.jpg);
+        background-size: cover;
+      }
 
-        h1 {
-            cursor: pointer;
-            font-weight: 900;
-            display: relative;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            margin-right: 1rem;
-            margin-left: 1rem;
-        }
+      h1 {
+        cursor: pointer;
+        font-weight: 900;
+        display: relative;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
 
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffffff;
-            padding: 50px;
-            border: 1px solid #cccccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-        }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        padding: 50px;
+        border: 1px solid #cccccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+      }
 
-        .popup h2 {
-            margin-top: 0;
-        }
+      .popup h2 {
+        margin-top: 0;
+      }
 
-        .popup ul {
-            list-style-type: none;
-            padding: 0;
-        }
+      .popup ul {
+        list-style-type: none;
+        padding: 0;
+      }
 
-        .popup ul li {
-            margin-bottom: 10px;
-        }
+      .popup ul li {
+        margin-bottom: 10px;
+      }
 
-        .popup ul li a {
-            text-decoration: none;
-            color: #333333;
-        }
+      .popup ul li a {
+        text-decoration: none;
+        color: #333333;
+      }
 
-        .popup ul li a:hover {
-            color: #ff0000;
-        }
+      .popup ul li a:hover {
+        color: #ff0000;
+      }
 
-        .popup button {
-            padding: 8px 16px;
-            background-color: #333333;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            margin-right: 5px;
-        }
+      .popup button {
+        padding: 8px 16px;
+        background-color: #333333;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+      }
 
-        .popup button:hover {
-            background-color: #ff0000;
-        }
+      .popup button:hover {
+        background-color: #ff0000;
+      }
     </style>
-</head>
-<body>
-    <h1 onclick="showPopup()">Click me!</h1>
-    <a href="3.html" id="firohh">klik tombol ini setelah memilih lagu dan mengklik tombol next dibawah lagu</a>
+  </head>
+  <body>
+    <style>
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #555;
+      }
+    </style>
+
+    <h1><button class="button" onclick="showPopup()">Click me!</button></h1>
+
+    <style>
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #e53935;
+      }
+    </style>
+
+    <a href="3.html" id="firohh" class="cta-button"
+      >Klik tombol ini setelah memilih lagu dan mengklik tombol next dibawah
+      lagu</a
+    >
 
     <div id="popup" class="popup">
-        <h2>Choose a Song</h2>
-        <ul>
-            <li><a href="#" onclick="playSong('starla')">Surat Cinta Untuk Starla by Virgoun.</a></li>
-            <li><a href="#" onclick="playSong('japan')">私と一緒にいて</a></li>
-            <li><a href="#" onclick="playSong('zero')">リゼロ</a></li>
-            <!-- Add more songs here -->
-        </ul>
-        <button onclick="closePopup()">Close</button>
-        <button id="next-button" class="custom-button">Next</button>
+      <h2>Choose a Song</h2>
+      <ul>
+        <li>
+          <a href="#" onclick="playSong('starla')"
+            >Surat Cinta Untuk Starla by Virgoun.</a
+          >
+        </li>
+        <li><a href="#" onclick="playSong('japan')">私と一緒にいて</a></li>
+        <li><a href="#" onclick="playSong('zero')">リゼロ</a></li>
+        <!-- Add more songs here -->
+      </ul>
+      <button onclick="closePopup()">Close</button>
+      <button id="next-button" class="custom-button">Next</button>
     </div>
 
     <script>
- function showCustomAlert() {
-            var message = 'haii firohh';
-            alert(message);
-            var message2 = 'ini akuhh masih ingat kahh??!';
-            alert(message2);
-            var message3 = 'jadi gini broo. aku tau tuhan tau kamu gk tau chuakks';
-            alert(message3);
-            var message4 = 'sorry joks bpak" soalny tongkrongan kami jokes bpak" sudah merajalela';
-            alert(message4);
-            var message5 = 'jadi gini mohon untuk di isi form yg ntar ak kasih yaa';
-            alert(message5);
-            var message6 = 'tolong mental di kuatkan ya dek. soalny ini pertanyaan yang sangat amat danger!!!';
-            alert(message6);
-        }
+      function showCustomAlert() {
+        var message = "haii firohh";
+        alert(message);
+        var message2 = "ini akuhh masih ingat kahh??!";
+        alert(message2);
+        var message3 = "jadi gini broo. aku tau tuhan tau kamu gk tau chuakks";
+        alert(message3);
+        var message4 =
+          'sorry joks bpak" soalny tongkrongan kami jokes bpak" sudah merajalela';
+        alert(message4);
+        var message5 = "jadi gini mohon untuk di isi form yg ntar ak kasih yaa";
+        alert(message5);
+        var message6 =
+          "tolong mental di kuatkan ya dek. soalny ini pertanyaan yang sangat amat danger!!!";
+        alert(message6);
+      }
 
-        var nextButton = document.getElementById("next-button");
-        nextButton.addEventListener("click", showCustomAlert);
+      var nextButton = document.getElementById("next-button");
+      nextButton.addEventListener("click", showCustomAlert);
     </script>
-</body>
+  </body>
 </html>
